@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+
+<header th:include="_template :: header"></header>
+
+<h1>Lista de doações</h1>
+
+<div class="alert alert-success" th:if="${message != null}" th:text="${message}"></div>
+
+<a href="/doacao/new">Cadastrar</a>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Doador</th>
+        <th>Alimento</th>
+        <th>Quantidade</th>
+        <th>Recebedor</th>
+        <th></th>
+    </tr>
+    <tr th:each="doacao : ${doacoes}">
+        <td th:text="${doacao.id}"></td>
+        <td th:text="${doacao.doador.nome}"></td>
+        <td th:text="${doacao.alimento.nome}"></td>
+        <td th:text="${doacao.quantidade}"></td>
+        <td th:text="${doacao.recebedor.razaoSocial}"></td>
+        <td>
+            <a th:href="${'/doacao/' + doacao.id}" class="btn btn-sm btn-dark">Editar</a>
+        </td>
+    </tr>
+</table>
+<footer th:include="_template :: footer"></footer>

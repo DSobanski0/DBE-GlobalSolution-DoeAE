@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+
+<body>
+
+	<header th:include="_template :: header"></header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+			<div class="text-center">
+			    <h1 class="mb-3">Projeto Doe A&E</h1>
+			    <p>Projeto consiste em uma aplicativo que visa incentivar a doação de alimentos por meio de gamificação para combater o desperdício e reduzir a fome.</p>
+			    <p>Terá a parte de cadastro dos doadores, aqueles que irão receber pontos a cada doação de alimentos e a parte dos recebedores, no caso ONGs, que irão distribuir esses alimentos aos mais necessitados.</p>
+			    <p>O cadastro de alimentos doados consistirá no nome do produto e a quantidade desse produto a ser doada. O doador poderá selecionar o recebedor ou deixar que o recebedor o selecione.</p>
+			</div>
+        </main>
+    </div>
+    <footer th:include="_template :: footer"></footer>
+</body>
+</html>

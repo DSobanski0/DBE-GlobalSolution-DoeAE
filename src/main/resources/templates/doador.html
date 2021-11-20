@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+
+<header th:include="_template :: header"></header>
+
+<h1>Lista de doadores</h1>
+
+<div class="alert alert-success" th:if="${message != null}" th:text="${message}"></div>
+
+<a href="/doador/new">Cadastrar</a>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>CNPJ</th>
+        <th>CEP</th>
+        <th>Logradouro</th>
+        <th>Número</th>
+        <th>Complemento</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th>Responsável</th>
+        <th>Ramo</th>
+        <th></th>
+    </tr>
+    <tr th:each="doador : ${doadores}">
+        <td th:text="${doador.id}"></td>
+        <td th:text="${doador.nome}"></td>
+        <td th:text="${doador.cpf}"></td>
+		<td th:text="${doador.cnpj}"></td>
+        <td th:text="${doador.endereco.cep}"></td>
+        <td th:text="${doador.endereco.logradouro}"></td>
+        <td th:text="${doador.endereco.numero}"></td>
+        <td th:text="${doador.endereco.complemento}"></td>
+        <td th:text="${doador.telefone}"></td>
+        <td th:text="${doador.email}"></td>
+        <td th:text="${doador.responsavel}"></td>
+        <td th:text="${doador.ramo}"></td>
+        <td>
+            <a th:href="${'/doador/' + doador.id}" class="btn btn-sm btn-dark">Editar</a>           
+            <a th:href="${'/doador/excluir/' + doador.id}" class="btn btn-sm btn-dark">Remover</a>
+        </td>
+    </tr>
+</table>
+<footer th:include="_template :: footer"></footer>

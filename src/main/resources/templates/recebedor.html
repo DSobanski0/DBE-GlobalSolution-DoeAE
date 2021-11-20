@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+
+<header th:include="_template :: header"></header>
+
+<h1>Lista de recebedores</h1>
+
+<div class="alert alert-success" th:if="${message != null}" th:text="${message}"></div>
+
+<a href="/recebedor/new">Cadastrar</a>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Razão social</th>
+        <th>CNPJ</th>
+        <th>CEP</th>
+        <th>Logradouro</th>
+        <th>Número</th>
+        <th>Complemento</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th>Responsável</th>
+        <th>Ramo</th>
+        <th></th>
+    </tr>
+    <tr th:each="recebedor : ${recebedores}">
+        <td th:text="${recebedor.id}"></td>
+        <td th:text="${recebedor.razaoSocial}"></td>
+		<td th:text="${recebedor.cnpj}"></td>
+        <td th:text="${recebedor.endereco.cep}"></td>
+        <td th:text="${recebedor.endereco.logradouro}"></td>
+        <td th:text="${recebedor.endereco.numero}"></td>
+        <td th:text="${recebedor.endereco.complemento}"></td>
+        <td th:text="${recebedor.telefone}"></td>
+        <td th:text="${recebedor.email}"></td>
+        <td th:text="${recebedor.responsavel}"></td>
+        <td th:text="${recebedor.ramo}"></td>
+        <td>
+            <a th:href="${'/recebedor/' + recebedor.id}" class="btn btn-sm btn-dark">Editar</a>           
+            <a th:href="${'/recebedor/excluir/' + recebedor.id}" class="btn btn-sm btn-dark">Remover</a>
+        </td>
+    </tr>
+</table>
+<footer th:include="_template :: footer"></footer>

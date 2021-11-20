@@ -1,0 +1,21 @@
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: header"></header>
+	<h1>Cadastro de Alimento</h1>
+	<form th:action="@{/alimento}" method="post" th:object="${alimento}">
+	    <div class="form-group">
+		    <label for="nome">Nome</label>
+		    <input 				
+		    	th:classappend="${#fields.hasErrors('nome')}? invalid"
+				type="text" 
+				id="nome" 
+				name="nome" 
+				th:field="*{nome}" />
+			<span th:errors="*{nome}"></span>
+		</div>
+	    <button th:text="Salvar" class="btn btn-primary"></button>
+	</form>
+	<footer th:include="_template :: footer"></footer>
+</body>
+</html>

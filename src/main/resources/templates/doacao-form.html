@@ -1,0 +1,34 @@
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: header"></header>
+	<h1>Cadastro de Doação</h1>
+	<form th:action="@{/doacao}" method="post" th:object="${doadorAlimentoRecebedor}">
+		<div class="form-group">
+		    <label for="doador">Doador</label>
+		    <select name="doador" class="form-control" th:field="*{doador}">
+		        <option th:each="doador : ${doadores}" th:value="${doador.id}" th:text="${doador.nome}"></option>
+		    </select>
+		</div>
+		<div class="form-group">
+		    <label for="alimento">Alimento</label>
+		    <select name="alimento" class="form-control" th:field="*{alimento}">
+		        <option th:each="alimento : ${alimentos}" th:value="${alimento.id}" th:text="${alimento.nome}"></option>
+		    </select>
+		</div>
+	    <div class="form-group">
+		    <label for="quantidade">Quantidade</label>
+		    <input th:classappend="${#fields.hasErrors('quantidade')}? invalid" type="text" id="quantidade"	name="quantidade" th:field="*{quantidade}" />
+			<span th:errors="*{quantidade}"></span>
+		</div>
+		<div class="form-group">
+		    <label for="recebedor">Recebedor</label>
+		    <select name="recebedor" class="form-control" th:field="*{recebedor}">
+		        <option th:each="recebedor : ${recebedores}" th:value="${recebedor.id}" th:text="${recebedor.razaoSocial}"></option>
+		    </select>
+		</div>
+	    <button th:text="Salvar" class="btn btn-primary"></button>
+	</form>
+	<footer th:include="_template :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: header"></header>
+	<h1>Cadastro de Recebedor</h1>
+	<form th:action="@{/recebedor/{id}(id=${recebedor.id})}" method="post" th:object="${recebedor}">
+	    <div class="form-group">
+		    <input type="hidden" th:field="*{id}" name="id" id="id"/>
+		</div>
+	    <div class="form-group">
+		    <label for="razaoSocial">Razão social</label>
+		    <input th:classappend="${#fields.hasErrors('razaoSocial')}? invalid" type="text" name="razaoSocial" th:field="*{razaoSocial}" />
+			<span th:errors="*{razaoSocial}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="cnpj">CNPJ</label>
+		    <input th:classappend="${#fields.hasErrors('cnpj')}? invalid" type="text" name="cnpj" th:field="*{cnpj}" />
+			<span th:errors="*{cnpj}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="endereco.cep">CEP</label>
+		    <input th:classappend="${#fields.hasErrors('endereco.cep')}? invalid" type="text" name="endereco.cep" th:field="*{endereco.cep}" />
+			<span th:errors="*{endereco.cep}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="endereco.logradouro">Logradouro</label>
+		    <input th:classappend="${#fields.hasErrors('endereco.logradouro')}? invalid" type="text" name="endereco.logradouro" th:field="*{endereco.logradouro}" />
+			<span th:errors="*{endereco.logradouro}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="endereco.numero">Número</label>
+		    <input th:classappend="${#fields.hasErrors('endereco.numero')}? invalid" type="text" name="endereco.numero" th:field="*{endereco.numero}" />
+			<span th:errors="*{endereco.numero}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="endereco.complemento">Complemento</label>
+		    <input th:classappend="${#fields.hasErrors('endereco.complemento')}? invalid" type="text" name="endereco.complemento" th:field="*{endereco.complemento}" />
+			<span th:errors="*{endereco.complemento}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="telefone">Telefone</label>
+		    <input th:classappend="${#fields.hasErrors('telefone')}? invalid" type="text" name="telefone" th:field="*{telefone}" />
+			<span th:errors="*{telefone}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="email">Email</label>
+		    <input th:classappend="${#fields.hasErrors('email')}? invalid" type="text" name="email" th:field="*{email}" />
+			<span th:errors="*{email}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="responsavel">Responsável</label>
+		    <input th:classappend="${#fields.hasErrors('responsavel')}? invalid" type="text" name="responsavel" th:field="*{responsavel}" />
+			<span th:errors="*{responsavel}"></span>
+		</div>
+		<div class="form-group">	
+		    <label for="ramo">Ramo</label>
+		    <input th:classappend="${#fields.hasErrors('ramo')}? invalid" type="text" name="ramo" th:field="*{ramo}" />
+			<span th:errors="*{ramo}"></span>
+		</div>
+	    <button th:text="Salvar" class="btn btn-primary"></button>
+	</form>
+	<footer th:include="_template :: footer"></footer>
+</body>
+</html>
